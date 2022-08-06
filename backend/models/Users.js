@@ -22,7 +22,7 @@ const UsersSchema = new mongoose.Schema({
         required: true
     },
     role_id: {
-        type: new mongoose.Types.ObjectId(),
+        type: String,
         required: true
     },
     isActive: {
