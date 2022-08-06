@@ -1,30 +1,23 @@
 <template>
   <div>
-    <!-- Preloader -->
-    <div class="preloader-it">
-        <div class="loader-pendulums"></div>
-    </div>
-    <!-- /Preloader -->
-   
-	<!-- HK Wrapper -->
-	<div class="hk-wrapper">
-
-        <!-- Main Content -->
-        <div class="hk-pg-wrapper hk-auth-wrapper">
+    <!-- HK Wrapper -->
+    <div class="hk-wrapper d-none">
+      <!-- Main Content -->
+      <div class="hk-pg-wrapper hk-auth-wrapper">
         <Header />
         <Nuxt />
-        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Header from '~/components/admin/login/Header.vue'
+import Header from "~/components/admin/login/Header.vue";
 export default {
-    components:{
-        Header
-    },
-    head: {
+  components: {
+    Header,
+  },
+  head: {
     title: "Mutfak Yapım Dijital Reklam Ajansı | Admin Paneli Girişi",
     meta: [
       { charset: "utf-8" },
@@ -58,8 +51,18 @@ export default {
       { src: "/vendor/js/feather.min.js", body: true },
       { src: "/vendor/js/init.js", body: true },
       { src: "/vendor/js/login-data.js", body: true },
-      { src: "/vendor/js/owl-data.js", body: true },
     ],
   },
 };
 </script>
+
+<style scoped>
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.5s;
+}
+.layout-enter,
+.layout-leave-to {
+  opacity: 0;
+}
+</style>

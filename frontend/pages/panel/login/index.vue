@@ -28,5 +28,12 @@ export default {
     LoginCarousel,
     LoginForm,
   },
+  mounted(){
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+      $(".preloader-it").delay(500).fadeOut("slow");
+      setTimeout(() => {this.$nuxt.$loading.finish();$(".hk-wrapper").removeClass("d-none")}, 1000)
+    })
+  }
 };
 </script>

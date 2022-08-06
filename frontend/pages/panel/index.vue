@@ -1157,7 +1157,7 @@
                       <div class="media-img-wrap">
                         <div class="avatar avatar-xs">
                           <img
-                            src="vendor/img/avatar2.jpg"
+                            src="/vendor/img/avatar2.jpg"
                             alt="user"
                             class="avatar-img rounded-circle"
                           />
@@ -1181,7 +1181,7 @@
                       <div class="media-img-wrap">
                         <div class="avatar avatar-xs">
                           <img
-                            src="vendor/img/avatar3.jpg"
+                            src="/vendor/img/avatar3.jpg"
                             alt="user"
                             class="avatar-img rounded-circle"
                           />
@@ -1201,19 +1201,19 @@
                           <a href="#" class="w-75p mr-10"
                             ><img
                               class="card-img-top rounded"
-                              src="vendor/img/slide1.jpg"
+                              src="/vendor/img/slide1.jpg"
                               alt="Card image cap"
                           /></a>
                           <a href="#" class="w-75p mr-10"
                             ><img
                               class="card-img-top rounded"
-                              src="vendor/img/slide2.jpg"
+                              src="/vendor/img/slide2.jpg"
                               alt="Card image cap"
                           /></a>
                           <a href="#" class="w-75p mr-10"
                             ><img
                               class="card-img-top rounded"
-                              src="vendor/img/slide3.jpg"
+                              src="/vendor/img/slide3.jpg"
                               alt="Card image cap"
                           /></a>
                         </div>
@@ -1223,7 +1223,7 @@
                       <div class="media-img-wrap">
                         <div class="avatar avatar-xs">
                           <img
-                            src="vendor/img/avatar4.jpg"
+                            src="/vendor/img/avatar4.jpg"
                             alt="user"
                             class="avatar-img rounded-circle"
                           />
@@ -1264,5 +1264,12 @@
 <script>
 export default {
   layout: "admin",
+  mounted(){
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+      $(".preloader-it").delay(500).fadeOut("slow");
+      setTimeout(() => {this.$nuxt.$loading.finish();$(".hk-wrapper").removeClass("d-none")}, 1000)
+    })
+  }
 };
 </script>

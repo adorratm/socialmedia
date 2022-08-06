@@ -8,196 +8,15 @@
         href="javascript:void(0);"
         ><i class="ion ion-ios-menu"></i
       ></a>
-      <a class="navbar-brand" href="dashboard1.html">
+      <nuxt-link class="navbar-brand" to="/panel/">
         <img
           class="brand-img d-inline-block"
-          src="vendor/img/logo-dark.png"
-          alt="brand"
+          src="~/assets/logo.webp"
+          width="160"
+          alt="Mutfak Yapım Dijital Reklam Ajansı"
         />
-      </a>
+      </nuxt-link>
       <ul class="navbar-nav hk-navbar-content">
-        <li class="nav-item">
-          <a
-            id="navbar_search_btn"
-            class="nav-link nav-link-hover"
-            href="javascript:void(0);"
-            ><i class="ion ion-ios-search"></i
-          ></a>
-        </li>
-        <li class="nav-item">
-          <a
-            id="settings_toggle_btn"
-            class="nav-link nav-link-hover"
-            href="javascript:void(0);"
-            ><i class="ion ion-ios-settings"></i
-          ></a>
-        </li>
-        <li class="nav-item dropdown dropdown-notifications">
-          <a
-            class="nav-link dropdown-toggle no-caret"
-            href="#"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            ><i class="ion ion-ios-notifications"></i
-            ><span class="badge-wrap"
-              ><span
-                class="
-                  badge
-                  badge-primary
-                  badge-indicator
-                  badge-indicator-sm
-                  badge-pill
-                  pulse
-                "
-              ></span></span
-          ></a>
-          <div
-            class="dropdown-menu dropdown-menu-right"
-            data-dropdown-in="fadeIn"
-            data-dropdown-out="fadeOut"
-          >
-            <h6 class="dropdown-header">
-              Notifications <a href="javascript:void(0);" class="">View all</a>
-            </h6>
-            <div class="notifications-nicescroll-bar">
-              <a href="javascript:void(0);" class="dropdown-item">
-                <div class="media">
-                  <div class="media-img-wrap">
-                    <div class="avatar avatar-sm">
-                      <img
-                        src="vendor/img/avatar1.jpg"
-                        alt="user"
-                        class="avatar-img rounded-circle"
-                      />
-                    </div>
-                  </div>
-                  <div class="media-body">
-                    <div>
-                      <div class="notifications-text">
-                        <span class="text-dark text-capitalize">Evie Ono</span>
-                        accepted your invitation to join the team
-                      </div>
-                      <div class="notifications-time">12m</div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="javascript:void(0);" class="dropdown-item">
-                <div class="media">
-                  <div class="media-img-wrap">
-                    <div class="avatar avatar-sm">
-                      <img
-                        src="vendor/img/avatar2.jpg"
-                        alt="user"
-                        class="avatar-img rounded-circle"
-                      />
-                    </div>
-                  </div>
-                  <div class="media-body">
-                    <div>
-                      <div class="notifications-text">
-                        New message received from
-                        <span class="text-dark text-capitalize"
-                          >Misuko Heid</span
-                        >
-                      </div>
-                      <div class="notifications-time">1h</div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="javascript:void(0);" class="dropdown-item">
-                <div class="media">
-                  <div class="media-img-wrap">
-                    <div class="avatar avatar-sm">
-                      <span
-                        class="avatar-text avatar-text-primary rounded-circle"
-                      >
-                        <span class="initial-wrap"
-                          ><span><i class="zmdi zmdi-account font-18"></i></span
-                        ></span>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="media-body">
-                    <div>
-                      <div class="notifications-text">
-                        You have a follow up with<span
-                          class="text-dark text-capitalize"
-                        >
-                          Pinkman head</span
-                        >
-                        on
-                        <span class="text-dark text-capitalize"
-                          >friday, dec 19</span
-                        >
-                        at <span class="text-dark">10.00 am</span>
-                      </div>
-                      <div class="notifications-time">2d</div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="javascript:void(0);" class="dropdown-item">
-                <div class="media">
-                  <div class="media-img-wrap">
-                    <div class="avatar avatar-sm">
-                      <span
-                        class="avatar-text avatar-text-success rounded-circle"
-                      >
-                        <span class="initial-wrap"><span>A</span></span>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="media-body">
-                    <div>
-                      <div class="notifications-text">
-                        Application of
-                        <span class="text-dark text-capitalize"
-                          >Sarah Williams</span
-                        >
-                        is waiting for your approval
-                      </div>
-                      <div class="notifications-time">1w</div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="javascript:void(0);" class="dropdown-item">
-                <div class="media">
-                  <div class="media-img-wrap">
-                    <div class="avatar avatar-sm">
-                      <span
-                        class="avatar-text avatar-text-warning rounded-circle"
-                      >
-                        <span class="initial-wrap"
-                          ><span
-                            ><i
-                              class="zmdi zmdi-notifications font-18"
-                            ></i></span
-                        ></span>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="media-body">
-                    <div>
-                      <div class="notifications-text">
-                        Last 2 days left for the project
-                      </div>
-                      <div class="notifications-time">15d</div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </li>
         <li class="nav-item dropdown dropdown-authentication">
           <a
             class="nav-link dropdown-toggle no-caret"
@@ -211,7 +30,7 @@
               <div class="media-img-wrap">
                 <div class="avatar">
                   <img
-                    src="vendor/img/avatar12.jpg"
+                    src="/vendor/img/avatar12.jpg"
                     alt="user"
                     class="avatar-img rounded-circle"
                   />
@@ -279,22 +98,6 @@
         </li>
       </ul>
     </nav>
-    <form role="search" class="navbar-search">
-      <div class="position-relative">
-        <a href="javascript:void(0);" class="navbar-search-icon"
-          ><i class="ion ion-ios-search"></i
-        ></a>
-        <input
-          type="text"
-          name="example-input1-group2"
-          class="form-control"
-          placeholder="Type here to Search"
-        />
-        <a id="navbar_search_close" class="navbar-search-close" href="#"
-          ><i class="ion ion-ios-close"></i
-        ></a>
-      </div>
-    </form>
     <!-- /Top Navbar -->
   </div>
 </template>

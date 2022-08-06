@@ -3,12 +3,6 @@ $(function($) {
 	"use strict";
 	
 	/*owl carousel*/
-	$("#owl_demo_1").owlCarousel({
-		items : 1, 
-		autoplay:true,
-		lazyLoad:true,
-		rewind:true
-	});
 	$('#owl_demo_2').owlCarousel({
 		margin:20,
 		autoplay:true,

@@ -42,3 +42,20 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    this.$nextTick(() => {
+      let $owl = $("#owl_demo_1").owlCarousel({
+        items: 1,
+        autoplay: true,
+        lazyLoad: true,
+        rewind: true,
+      });
+
+      $owl.trigger('refresh.owl.carousel');
+    });
+  },
+};
+</script>
