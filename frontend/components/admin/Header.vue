@@ -29,16 +29,12 @@
             <div class="media">
               <div class="media-img-wrap">
                 <div class="avatar">
-                  <img
-                    src="/vendor/img/avatar12.jpg"
-                    alt="user"
-                    class="avatar-img rounded-circle"
-                  />
+                  <i class="fa fa-user-circle fa-2x"></i>
                 </div>
                 <span class="badge badge-success badge-indicator"></span>
               </div>
               <div class="media-body">
-                <span>Madelyn Shane<i class="zmdi zmdi-chevron-down"></i></span>
+                <span>{{getUserInfo.name + ' ' + getUserInfo.surname}}<i class="zmdi zmdi-chevron-down"></i></span>
               </div>
             </div>
           </a>
@@ -47,52 +43,18 @@
             data-dropdown-in="flipInX"
             data-dropdown-out="flipOutX"
           >
-            <a class="dropdown-item" href="profile.html"
-              ><i class="dropdown-icon zmdi zmdi-account"></i
-              ><span>Profile</span></a
+            <nuxt-link class="dropdown-item" :to="'/panel/users/edit/'+getUserInfo._id"
+              ><i class="dropdown-icon fa fa-user-edit"></i
+              ><span>Profil</span></nuxt-link
             >
-            <a class="dropdown-item" href="#"
-              ><i class="dropdown-icon zmdi zmdi-card"></i
-              ><span>My balance</span></a
-            >
-            <a class="dropdown-item" href="inbox.html"
-              ><i class="dropdown-icon zmdi zmdi-email"></i
-              ><span>Inbox</span></a
-            >
-            <a class="dropdown-item" href="#"
-              ><i class="dropdown-icon zmdi zmdi-settings"></i
-              ><span>Settings</span></a
+            <nuxt-link class="dropdown-item" to="/panel/settings/"
+              ><i class="dropdown-icon fa fa-cogs"></i
+              ><span>Ayarlar</span></nuxt-link
             >
             <div class="dropdown-divider"></div>
-            <div class="sub-dropdown-menu show-on-hover">
-              <a href="#" class="dropdown-toggle dropdown-item no-caret"
-                ><i class="zmdi zmdi-check text-success"></i>Online</a
-              >
-              <div class="dropdown-menu open-left-side">
-                <a class="dropdown-item" href="#"
-                  ><i class="dropdown-icon zmdi zmdi-check text-success"></i
-                  ><span>Online</span></a
-                >
-                <a class="dropdown-item" href="#"
-                  ><i class="dropdown-icon zmdi zmdi-circle-o text-warning"></i
-                  ><span>Busy</span></a
-                >
-                <a class="dropdown-item" href="#"
-                  ><i
-                    class="
-                      dropdown-icon
-                      zmdi zmdi-minus-circle-outline
-                      text-danger
-                    "
-                  ></i
-                  ><span>Offline</span></a
-                >
-              </div>
-            </div>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#"
-              ><i class="dropdown-icon zmdi zmdi-power"></i
-              ><span>Log out</span></a
+            <a class="dropdown-item" @click="logout()" href="javascript:void(0)"
+              ><i class="dropdown-icon fa fa-power-off"></i
+              ><span>Çıkış Yap</span></a
             >
           </div>
         </li>
@@ -147,8 +109,6 @@ export default {
         src: "/vendor/plugins/bootstrap/dist/js/bootstrap.bundle.min.js",
         body: true,
       },
-      { src: "/vendor/js/all.min.js", body: true },
-      { src: "/vendor/js/v4-shims.min.js", body: true },
       { src: "/vendor/js/jquery.slimscroll.js", body: true },
       { src: "/vendor/js/dropdown-bootstrap-extended.js", body: true },
       { src: "/vendor/js/feather.min.js", body: true },
@@ -170,5 +130,22 @@ export default {
       { src: "/vendor/js/dashboard-data.js", body: true },
     ],
   },
+  computed: {
+      getUserInfo() {
+        return this.$store.getters.getUserInfo;
+      },
+      isAuthenticated() {
+        return this.$store.getters.isAuthenticated;  // it check if user isAuthenticated 
+      }
+    },
+    mounted(){
+      console.log(this.getUserInfo)
+    },
+    methods: {
+      async logout() {
+        await this.$auth.logout();  // this method will logout the user and make token to false on the local storage of the user browser
+        await this.$router.replace('/panel/login');
+      }
+    },
 };
 </script>

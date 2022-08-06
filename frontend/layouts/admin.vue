@@ -25,6 +25,7 @@ export default {
     Sidebar,
     Footer,
   },
+  middleware:['authenticated']
 };
 </script>
 

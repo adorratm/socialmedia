@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form>
+    <form @submit.prevent="login">
       <h1 class="display-4 mb-10">Tekrar Hoşgeldiniz :)</h1>
       <p class="mb-30">Bilgilerinizle Panele Giriş Yapın.</p>
       <div class="form-group">
@@ -8,7 +8,7 @@
           class="form-control form-control-sm rounded-0"
           placeholder="Email Adresiniz"
           type="email"
-          v-model="email"
+          v-model="loginData.email"
         />
       </div>
       <div class="form-group">
@@ -16,7 +16,7 @@
           class="form-control form-control-sm rounded-0"
           placeholder="Şifreniz"
           type="password"
-          v-model="password"
+          v-model="loginData.password"
         />
       </div>
       <button class="btn btn-pink btn-block btn-sm rounded-0" type="submit">
@@ -36,9 +36,24 @@
 export default {
   data() {
     return {
-      email: null,
-      password: null,
+      loginData: {
+        email: null,
+        password: null,
+      },
     };
+  },
+  methods: {
+    async login() {
+      try {
+        let response = await this.$auth.loginWith("local", {
+          data: this.loginData,
+        });
+        this.$router.replace("/panel");
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 };
 </script>

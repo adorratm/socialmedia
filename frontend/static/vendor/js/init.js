@@ -25,12 +25,6 @@ $(document).ready(function () {
 });
 /*****Ready function end*****/
 
-/*****Load function start*****/
-$(window).on("load", function () {
-	$(".preloader-it").delay(500).fadeOut("slow");
-});
-/*****Load function* end*****/
-
 /*Variables*/
 var height, width,
 	$wrapper = $(".hk-wrapper"),

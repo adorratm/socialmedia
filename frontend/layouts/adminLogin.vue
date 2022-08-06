@@ -40,8 +40,6 @@ export default {
         src: "/vendor/plugins/bootstrap/dist/js/bootstrap.bundle.min.js",
         body: true,
       },
-      { src: "/vendor/js/all.min.js", body: true },
-      { src: "/vendor/js/v4-shims.min.js", body: true },
       { src: "/vendor/js/jquery.slimscroll.js", body: true },
       { src: "/vendor/js/dropdown-bootstrap-extended.js", body: true },
       {
@@ -53,6 +51,7 @@ export default {
       { src: "/vendor/js/login-data.js", body: true },
     ],
   },
+  middleware: ['unauthenticated']
 };
 </script>
 

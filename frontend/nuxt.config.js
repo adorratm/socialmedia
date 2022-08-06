@@ -43,12 +43,13 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/auth-next'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: 'http://localhost:5000',
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -62,5 +63,40 @@ export default {
   build: {
   },
 
-  loading: '~/components/admin/LoadingBar.vue'
+  loading: '~/components/admin/LoadingBar.vue',
+
+  auth: {
+    strategies: {
+      local: {
+        //scheme: "refresh",
+        token: {
+          property: "token",
+          global: true,
+          required: true,
+          type: "Bearer"
+        },
+        user: {
+          property: "user",
+          autoFetch: true
+        },
+        /*refreshToken:{
+          property: "refresh_token",
+          data: "refresh_token"
+        },*/
+        endpoints: {
+          login: {
+            url: "/api/auth/login", method: "post"
+          },
+          /*refresh: {
+            url: "/api/auth/refresh-token", method: "post"
+          },*/
+          logout: false,
+          user: {
+            url: "/api/auth/user", method: "get"
+          }
+        },
+        redirect: false
+      }
+    }
+  }
 }

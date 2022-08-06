@@ -1,29 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config({path:'./.env'});
+require('dotenv').config({ path: './.env' });
 // Create Our Express App
 const app = express();
 
 const PORT = process.env.PORT || 5000;
-
-// Handle Cors + Middleware
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,PATCH,DELETE');
-    res.header('Access-Control-Allow-Headers', 'auth-token, Origin, X-Requested-With, Content-Type, Accept');
-    next();
-});
-
-// Database Stuff
-
-const uri = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?serverSelectionTimeoutMS=${process.env.DB_SELECTION_TIMEOUT}&connectTimeoutMS=${process.env.DB_CONNECTION_TIMEOUT}&authSource=${process.env.DB_AUTH_SOURCE}&authMechanism=${process.env.DB_AUTH_MECHANISM}`;
-
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log('MongoDB Connected');
-}).catch((err) => console.log(err));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -35,10 +16,40 @@ app.get('/', (req, res) => {
 });
 
 const UsersRoute = require('./routes/Users');
+const authRouter = require('./routes/authRouter');
 
-app.use('/users',UsersRoute);
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+    );
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    next();
+});
+
+app.use('/api/users', UsersRoute);
+app.use("/api/auth/", authRouter);
+
+app.use((error, req, res, next) => {
+    console.log(error);
+    const status = error.statusCode || 500;
+    const message = error.message;
+    const data = error.data;
+    res.status(status).json({ message: message, data: data });
+});
 
 
 
+// Database Stuff
 
-app.listen(PORT, () => console.log(`Server running on port: ${PORT}`))
+const uri = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?serverSelectionTimeoutMS=${process.env.DB_SELECTION_TIMEOUT}&connectTimeoutMS=${process.env.DB_CONNECTION_TIMEOUT}&authSource=${process.env.DB_AUTH_SOURCE}&authMechanism=${process.env.DB_AUTH_MECHANISM}`;
+
+mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('MongoDB Connected');
+    app.listen(PORT, () => console.log(`Server running on port: ${PORT}`))
+}).catch((err) => console.log(err));
+
