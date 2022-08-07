@@ -34,7 +34,10 @@
                 <span class="badge badge-success badge-indicator"></span>
               </div>
               <div class="media-body">
-                <span>{{getUserInfo.name + ' ' + getUserInfo.surname}}<i class="zmdi zmdi-chevron-down"></i></span>
+                <span
+                  >{{ getUserInfo.name + " " + getUserInfo.surname
+                  }}<i class="zmdi zmdi-chevron-down"></i
+                ></span>
               </div>
             </div>
           </a>
@@ -43,7 +46,9 @@
             data-dropdown-in="flipInX"
             data-dropdown-out="flipOutX"
           >
-            <nuxt-link class="dropdown-item" :to="'/panel/users/edit/'+getUserInfo._id"
+            <nuxt-link
+              class="dropdown-item"
+              :to="'/panel/users/edit/' + getUserInfo._id"
               ><i class="dropdown-icon fa fa-user-edit"></i
               ><span>Profil</span></nuxt-link
             >
@@ -131,21 +136,23 @@ export default {
     ],
   },
   computed: {
-      getUserInfo() {
-        return this.$store.getters.getUserInfo;
-      },
-      isAuthenticated() {
-        return this.$store.getters.isAuthenticated;  // it check if user isAuthenticated 
+    getUserInfo() {
+      return this.$store.getters.getUserInfo;
+    },
+    isAuthenticated() {
+      return this.$store.getters.isAuthenticated; // it check if user isAuthenticated
+    },
+  },
+  methods: {
+    async logout() {
+      try {
+        await this.$auth.logout();
+        // this method will logout the user and make token to false on the local storage of the user browser
+        await this.$router.replace("/panel/login");
+      } catch (e) {
+        console.log(e)
       }
     },
-    mounted(){
-      console.log(this.getUserInfo)
-    },
-    methods: {
-      async logout() {
-        await this.$auth.logout();  // this method will logout the user and make token to false on the local storage of the user browser
-        await this.$router.replace('/panel/login');
-      }
-    },
+  },
 };
 </script>

@@ -28,6 +28,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "~/plugins/vee-validate"
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -43,7 +44,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/auth-next'
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -61,11 +62,22 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // Add exception
+  transpile: [
+    "vee-validate/dist/rules"
+  ],
+  /*
+    ** You can extend webpack config here
+    */
+  extend(config, ctx) {
+    // ...
+  }
   },
 
   loading: '~/components/admin/LoadingBar.vue',
 
   auth: {
+    redirect: false,
     strategies: {
       local: {
         //scheme: "refresh",
@@ -95,7 +107,7 @@ export default {
             url: "/api/auth/user", method: "get"
           }
         },
-        redirect: false
+        
       }
     }
   }

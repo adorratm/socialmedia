@@ -33,7 +33,12 @@
 </template>
 
 <script>
+import { ValidationProvider } from 'vee-validate';
+
 export default {
+  components:{
+    ValidationProvider
+  },
   data() {
     return {
       loginData: {
@@ -49,7 +54,6 @@ export default {
           data: this.loginData,
         });
         this.$router.replace("/panel");
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
