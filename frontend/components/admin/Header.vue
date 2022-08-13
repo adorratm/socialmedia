@@ -25,6 +25,7 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
+            data-bs-toggle="dropdown"
           >
             <div class="media">
               <div class="media-img-wrap">
@@ -86,26 +87,6 @@ export default {
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      {
-        rel: "stylesheet",
-        type: "text/css",
-        href: "/vendor/plugins/jquery-toggles/css/toggles.css",
-      },
-      {
-        rel: "stylesheet",
-        type: "text/css",
-        href: "/vendor/plugins/jquery-toggles/css/themes/toggles-light.css",
-      },
-      {
-        rel: "stylesheet",
-        type: "text/css",
-        href: "/vendor/plugins/jquery-toast-plugin/dist/jquery.toast.min.css",
-      },
-      {
-        rel: "stylesheet",
-        type: "text/css",
-        href: "/vendor/css/lightgallery.css",
-      },
       { rel: "stylesheet", type: "text/css", href: "/vendor/css/style.css" },
     ],
     script: [
@@ -114,25 +95,9 @@ export default {
         src: "/vendor/plugins/bootstrap/dist/js/bootstrap.bundle.min.js",
         body: true,
       },
-      { src: "/vendor/js/jquery.slimscroll.js", body: true },
       { src: "/vendor/js/dropdown-bootstrap-extended.js", body: true },
       { src: "/vendor/js/feather.min.js", body: true },
-      { src: "/vendor/plugins/jquery-toggles/toggles.min.js", body: true },
-      { src: "/vendor/js/toggle-data.js", body: true },
-      {
-        src: "/vendor/plugins/waypoints/lib/jquery.waypoints.min.js",
-        body: true,
-      },
-      {
-        src: "/vendor/plugins/owl.carousel/dist/owl.carousel.min.js",
-        body: true,
-      },
-      {
-        src: "/vendor/plugins/jquery-toast-plugin/dist/jquery.toast.min.js",
-        body: true,
-      },
       { src: "/vendor/js/init.js", body: true },
-      { src: "/vendor/js/dashboard-data.js", body: true },
     ],
   },
   computed: {

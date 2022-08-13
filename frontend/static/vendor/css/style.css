@@ -106,8 +106,8 @@ Project:	pinkman
 @import url(./linea-icon.css);
 @import url(./pe-icon-7-stroke.css);
 @import url(./material-design-iconic-font.min.css);
-@import url(../plugins/owl.carousel/dist/assets/owl.carousel.min.css);
-@import url(../plugins/owl.carousel/dist/assets/owl.theme.default.min.css);
+@import url(../plugins/owlcarousel/owl.carousel.min.css);
+@import url(../plugins/owlcarousel/owl.theme.default.min.css);
 
 /*__________________________________________________________________;
 [Mixin]
@@ -18851,6 +18851,8 @@ Project:	pinkman
 .hk-wrapper .hk-navbar {
   padding-top: 0;
   padding-bottom: 0;
+  padding-left: 15px;
+  padding-right: 15px;
   box-shadow: 0 0 28px rgba(0, 0, 0, 0.07);
 }
 
@@ -18944,6 +18946,7 @@ Project:	pinkman
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  display: flex;
 }
 
 .hk-wrapper .hk-navbar .navbar-nav .nav-item.dropdown.dropdown-authentication .nav-link .media .media-img-wrap {

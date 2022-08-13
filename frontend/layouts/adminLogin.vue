@@ -40,15 +40,13 @@ export default {
         src: "/vendor/plugins/bootstrap/dist/js/bootstrap.bundle.min.js",
         body: true,
       },
-      { src: "/vendor/js/jquery.slimscroll.js", body: true },
       { src: "/vendor/js/dropdown-bootstrap-extended.js", body: true },
       {
-        src: "/vendor/plugins/owl.carousel/dist/owl.carousel.min.js",
+        src: "/vendor/plugins/owlcarousel/owl.carousel.min.js",
         body: true,
       },
       { src: "/vendor/js/feather.min.js", body: true },
       { src: "/vendor/js/init.js", body: true },
-      { src: "/vendor/js/login-data.js", body: true },
     ],
   },
   middleware: ['unauthenticated']
