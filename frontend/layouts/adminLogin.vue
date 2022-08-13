@@ -44,6 +44,7 @@ export default {
       {
         src: "/vendor/plugins/owlcarousel/owl.carousel.min.js",
         body: true,
+        ssr:false
       },
       { src: "/vendor/js/feather.min.js", body: true },
       { src: "/vendor/js/init.js", body: true },

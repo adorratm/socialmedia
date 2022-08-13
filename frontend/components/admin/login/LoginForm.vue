@@ -4,7 +4,7 @@
       <form @submit.prevent="handleSubmit(login)">
         <h1 class="display-4 mb-10">Tekrar Hoşgeldiniz :)</h1>
         <p class="mb-30">Bilgilerinizle Panele Giriş Yapın.</p>
-        <div class="form-floating mb-3">
+        <div class="form-group mb-3">
           <ValidationProvider
             vid="email"
             name="E-Mail Adresiniz"
@@ -23,7 +23,7 @@
             <span class="mt-5 d-block text-danger">{{ errors[0] }}</span>
           </ValidationProvider>
         </div>
-        <div class="form-floating mb-3">
+        <div class="form-group mb-3">
           <ValidationProvider
             vid="password"
             name="Şifreniz"
@@ -42,15 +42,13 @@
             <span class="mt-5 d-block text-danger">{{ errors[0] }}</span>
           </ValidationProvider>
         </div>
-        <div class="d-grid">
-          <button
-            class="btn btn-pink btn-block btn-sm rounded-0"
-            type="submit"
-            :disabled="invalid"
-          >
-            Giriş Yap
-          </button>
-        </div>
+        <button
+          class="btn btn-pink btn-block btn-sm rounded-0"
+          type="submit"
+          :disabled="invalid"
+        >
+          Giriş Yap
+        </button>
 
         <p class="font-14 text-center mt-15">
           Oturum Açarken Problem Mi Yaşıyorsunuz?
